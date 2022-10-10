@@ -18,13 +18,28 @@ const items = [
   }
 ]
 
+const options = [
+  {
+    label: 'The Color Red',
+    value: 'red'
+  },
+  {
+    label: 'The Color Green',
+    value: 'green'
+  },
+  {
+    label: 'A Shade of Blue',
+    value: 'blue'
+  }
+];
+
 function App() {
   return (
     <div className="App">
     <br />
       {/* <Accordion items={items} /> */}
       {/* <Search /> */}
-      <Dropdown />
+      <Dropdown  options={options} />
     </div>
   );
 }
