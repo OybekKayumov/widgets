@@ -4,7 +4,6 @@ class AccordionClass extends React.Component {
   state = { activeIndex: 0 };
 
   onTitleClicked(index) {
-    // console.log('title was clicked');
     this.setState({
       activeIndex: index,
     })
@@ -39,11 +38,9 @@ class AccordionClass extends React.Component {
 }
 
 const Accordion = ({ items }) => {
-  // hook, vN143
   const [activeIndex, setActiveIndex] = useState(null);
 
   const onTitleClick = (index) => {
-    // console.log('title clicked', index );
     setActiveIndex(index);
   }
 
@@ -54,11 +51,7 @@ const Accordion = ({ items }) => {
       <React.Fragment key={item.title}>
         <div 
           className={ `title ${active}` } 
-          onClick={() => onTitleClick(index)}
-          
-          // onClick={() => console.log('title clicked', index )}
-          //todo: if to use like not arrow function, when page refreshed, we will have all list rendered without pressing on a list
-          // onClick={onTitleClick(index)} vN141
+          onClick={() => onTitleClick(index)}        
         >
           <i className="dropdown icon"></i>
           {item.title}
@@ -80,5 +73,3 @@ const Accordion = ({ items }) => {
 }
 
 export default Accordion;
-
-
