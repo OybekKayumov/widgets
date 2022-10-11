@@ -66,7 +66,7 @@ const showTranslate = () => {
 // }
 
 function App() {
-  // const [selected, setSelected] = useState(options[0]);
+  const [selected, setSelected] = useState(options[0]);
   // const [showDropdown, setShowDropdown] = useState(true);
 
   return (
@@ -94,6 +94,23 @@ function App() {
 
       <Route path="/">
         <Accordion items={items} />
+      </Route>
+
+      <Route path="/list">
+        <Search />
+      </Route>
+
+      <Route path="/dropdown">
+        <Dropdown 
+          label="Select a Color"
+          options={options}
+          selected={selected}
+          onSelectedChange={setSelected}
+        />
+      </Route>
+
+      <Route path="/translate">
+        <Translate />
       </Route>
     </div>
   );
