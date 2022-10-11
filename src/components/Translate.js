@@ -15,6 +15,18 @@ const options = [
   {
     label: 'Hindi',
     value: 'hi'
+  },
+  {
+    label: 'Uzbek',
+    value: 'uz'
+  },
+  {
+    label: 'Greek',
+    value: 'el'
+  },
+  {
+    label: 'Latin',
+    value: 'la'
   }   
 ];
 
