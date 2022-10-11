@@ -1,7 +1,7 @@
 body {
   margin: 0;
   background-color: seagreen;
-  color: #fff;
+  color: rgb(71, 68, 68);
 }
 
 .ui.form .field>label {
