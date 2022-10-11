@@ -1,17 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Dropdown = ({ options, selected, onSelectedChange }) => {
   const [open, setOpen] = useState(false);
+  const ref = useRef();
 
   // only runs one time when we first render our Dropdown component onto the screen -> []
   useEffect(() => {
-    document.body.addEventListener('click', (e) => {
-      console.log('body Clicked!!!');
-      console.log('event.target: ', e.target);
+    const onBodyClick = (event) => {
+      if (ref.current.contains(event.target)) {
+        return;
+      }
+      setOpen(false);
+    };
 
-      setOpen(false)
-    }, {capture: true}); // React v17
-    // });
+    document.body.addEventListener('click', onBodyClick, { capture: true });
+
+    return () => {
+      document.body.removeEventListener('click', onBodyClick, {
+         capture: true, 
+      });
+    };
   }, []);
 
   const renderedOptions = options.map((option) => {
@@ -33,8 +41,10 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
     )
   });
 
+  // console.log('ref.current: ', ref.current);
+
   return (
-    <div className="ui form">
+    <div ref={ref} className="ui form">
       <div className="field">
         <label className="label">Select a Color</label>
 
