@@ -7,6 +7,10 @@ const Link = ({ className, href, children }) => {
 
     // change url without updating
     window.history.pushState({}, '', href)
+
+    // 
+    const navEvent = new PopStateEvent('popstate');
+    window.dispatchEvent(navEvent)
   }
 
   return (
