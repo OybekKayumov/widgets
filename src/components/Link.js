@@ -2,6 +2,11 @@ import React from "react";
 
 const Link = ({ className, href, children }) => {
   const onClick = (event) => {
+    // Press "Ctrl + Link" --> open in new tab in browser
+    if (event.metaKey || event.ctrlKey) {
+      return;
+    }
+
     // no update page
     event.preventDefault();
 
