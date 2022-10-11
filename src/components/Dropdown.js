@@ -7,7 +7,9 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
   useEffect(() => {
     document.body.addEventListener('click', () => {
       console.log('Clicked!!!');
-    });
+      setOpen(false)
+    }, {capture: true}); // React v17
+    // });
   }, []);
 
   const renderedOptions = options.map((option) => {
