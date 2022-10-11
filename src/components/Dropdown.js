@@ -5,8 +5,10 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
 
   // only runs one time when we first render our Dropdown component onto the screen -> []
   useEffect(() => {
-    document.body.addEventListener('click', () => {
-      console.log('Clicked!!!');
+    document.body.addEventListener('click', (e) => {
+      console.log('body Clicked!!!');
+      console.log('event.target: ', e.target);
+
       setOpen(false)
     }, {capture: true}); // React v17
     // });
@@ -21,7 +23,10 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
       <div 
         key={option.value} 
         className="item"
-        onClick={() => onSelectedChange(option)}
+        onClick={() => {
+          console.log('item clicked!!!')
+          onSelectedChange(option)}
+        }
       >
         {option.label}
       </div>
@@ -34,7 +39,10 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
         <label className="label">Select a Color</label>
 
         <div 
-          onClick={() => setOpen(!open)} 
+          onClick={() => {
+            console.log('dropdown clicked')
+            setOpen(!open)}
+          }
           className={`ui selection dropdown ${ open ? 'visible active' : ''}`}
         >
           <i className="dropdown icon"></i>
